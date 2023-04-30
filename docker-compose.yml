@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
